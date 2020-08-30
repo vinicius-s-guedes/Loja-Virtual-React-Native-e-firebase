@@ -2,9 +2,12 @@
 Projeto pessoal
 
 
-Funcionalidades Adicionadas:
+##Funcionalidades Adicionadas:
+<br />
 ![](./static/20200830-190952.gif)
 
+<br />
+<br />
 Loja Virtual:<br />
 -Chat <br />
 -Listar produtos<br />
