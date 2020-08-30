@@ -6,34 +6,34 @@ Funcionalidades Adicionadas:
 ![](./static/20200830-190952.gif)
 
 Loja Virtual:
-###Chat
-###Listar produtos
-###Pesquisa produto
-###Carrinho
-###Salvar produto
-###Finalizar Compra
-###Alterar Email
-###Alterar Senha
-###Excluir Conta
-###Editar usuario
-###Criar usuários
-###Logar
-###Deslogar
+###Chat <br />
+###Listar produtos<br />
+###Pesquisa produto<br />
+###Carrinho<br />
+###Salvar produto<br />
+###Finalizar Compra<br />
+###Alterar Email<br />
+###Alterar Senha<br />
+###Excluir Conta<br />
+###Editar usuario<br />
+###Criar usuários<br />
+###Logar<br />
+###Deslogar<br />
 
 Admin:
-###Listar usuários
-###Chat
-###Listar produtos
-###Excluir produtos
-###Adicionar produtos
-###Editar produto
-###Pesquisa produto
-###Alterar Email
-###Alterar Senha
-###Excluir Conta
-###Editar usuario
-###Criar usuários
-###Logar
-###Deslogar
+###Listar usuários<br />
+###Chat<br />
+###Listar produtos<br />
+###Excluir produtos<br />
+###Adicionar produtos<br />
+###Editar produto<br />
+###Pesquisa produto<br />
+###Alterar Email<br />
+###Alterar Senha<br />
+###Excluir Conta<br />
+###Editar usuario<br />
+###Criar usuários<br />
+###Logar<br />
+###Deslogar<br />
 
 
