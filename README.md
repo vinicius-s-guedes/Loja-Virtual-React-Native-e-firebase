@@ -6,9 +6,8 @@ Projeto pessoal
 
 ![](./static/20200830-190952.gif)
 
-<br />
-<br />
-### Loja Virtual:<br />
+
+### Loja Virtual:
 -Chat <br />
 -Listar produtos<br />
 -Pesquisa produto<br />
@@ -23,7 +22,7 @@ Projeto pessoal
 -Logar<br />
 -Deslogar<br />
 
-<br /><br /><br /><br />
+
 ### Admin:<br />
 -Listar usuários<br />
 -Chat<br />
