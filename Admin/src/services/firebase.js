@@ -9,14 +9,14 @@ import "firebase/auth";
 
 // Initialize Firebase
 const firebaseConfig = {
-    apiKey: "AIzaSyCa3UKMWxlKgMv1MfNV3uCWutkRs-DR5tw",
-    authDomain: "clone-mercado-livre.firebaseapp.com",
-    databaseURL: "https://clone-mercado-livre.firebaseio.com",
-    projectId: "clone-mercado-livre",
-    storageBucket: "clone-mercado-livre.appspot.com",
-    messagingSenderId: "736014324582",
-    appId: "1:736014324582:web:3e4fd85162080d4dc0aea7",
-    measurementId: "G-0X9WNZ1YWK"
+    apiKey: "apiKey",
+    authDomain: "authDomain",
+    databaseURL: "databaseURL",
+    projectId: "projectId",
+    storageBucket: "storageBucket",
+    messagingSenderId: "messagingSenderId",
+    appId: "appId",
+    measurementId: "measurementId"
 };
 
 firebase.initializeApp(firebaseConfig);
