@@ -31,7 +31,9 @@ const Login=({navigation})=> {
         .then(function() {
             return firebase.auth().signInWithEmailAndPassword(user, pass)
             .then((response) => {
-                console.log('entrou');
+
+
+
                 navigation.navigate('Index')
 
             })

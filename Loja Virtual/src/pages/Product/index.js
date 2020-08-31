@@ -8,7 +8,7 @@ import firebase from '../../services/firebase'
 
 
 
-export default function Product({ navigation: { goBack }, route }) {
+export default function Product({ navigation: { goBack },navigation, route }) {
 	const [incidents,setIncidents] = useState([]);
 	const [like, setLile]= useState();
 
@@ -19,8 +19,11 @@ export default function Product({ navigation: { goBack }, route }) {
 
 
 	var db = firebase.firestore();
-
 	useEffect (() => {
+
+		if(firebase.auth().currentUser){
+
+	
 		console.log('refresh')
 		db.collection("LikeProd").doc(firebase.auth().currentUser.uid+''+idProd)
 		.get()
@@ -37,9 +40,9 @@ export default function Product({ navigation: { goBack }, route }) {
 		.catch(err => {
 			console.log('Error getting document', err);
 		});
+	}
 
-
-	},[]);
+},[]);
 
 
 
@@ -48,6 +51,8 @@ export default function Product({ navigation: { goBack }, route }) {
 
 
 	const likeProd = async () => {
+		if(firebase.auth().currentUser){
+
 		var teste=true
 		if(like == true){
 			setLile(false)
@@ -72,6 +77,9 @@ export default function Product({ navigation: { goBack }, route }) {
 				console.error("Error adding document: ", error);
 			});
 		}
+	}else{
+		navigation.navigate('Home')
+	}
 	}
 
 
@@ -95,7 +103,7 @@ console.log(route.params.item)
 		<Image source={{uri:`${produto.result.downloadUrl}`}} />
 		<Button onPress={()=> goBack()}><Feather name="x" size={24} color="#5ca935" /></Button>
 		{like== true?		
-			<Button3 onPress={()=> likeProd()}><AntDesign name="heart" size={24} color="red" /></Button3>
+			<Button3 onPress={()=> likeProd()}><AntDesign name="heart" size={24} color='#5ca935' /></Button3>
 			:
 			<Button3 onPress={()=> likeProd()}><AntDesign name="heart" size={24} color="black" /></Button3>
 
@@ -104,36 +112,14 @@ console.log(route.params.item)
 
 
 		<Title>{produto.result.titulo}</Title>
-		<Text>Descrição:</Text>
+		<Text style={{color:'#5ca935'}}>Descrição:</Text>
 
 		<Text>{produto.result.descricao}</Text>
-		<Text>Condição:</Text>
 
-		<Text>{produto.result.uso}</Text>
-		<Text>Valor:</Text>
+		<Text style={{color:'#5ca935'}}>Valor:</Text>
 
-		<Text>{produto.result.preco}R$</Text>
-		<Text>Localização:</Text>
+		<Text >{produto.result.preco}R$</Text>
 
-		<Text>{produto.result.cep}</Text>
-		<Text >
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-		eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-		minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-		aliquip ex ea commodo consequat. Duis aute irure dolor in
-		reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-		pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-		culpa qui officia deserunt mollit anim id est laborum.
-		</Text>
-		<Text >
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-		eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-		minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-		aliquip ex ea commodo consequat. Duis aute irure dolor in
-		reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-		pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-		culpa qui officia deserunt mollit anim id est laborum.
-		</Text>
 		<View></View>
 
 		</ScrollView>

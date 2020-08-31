@@ -21,11 +21,11 @@ export default function Perfil({ navigation }) {
                     ?(
 		<Image source={{uri:`${firebase.auth().currentUser.photoURL}`}} />
                         ):(
-                        <EvilIcons name="user" size={60} color="black" />)}
+                        <EvilIcons name="user" size={300} color="black" />)}
 		<Option  onPress={()=>navigation.navigate('EditProfile')}><Text>Editar perfil</Text></Option>
 		<Option onPress={()=>navigation.navigate('Cart')}><Text>Favoritos</Text></Option>
 		<Option  onPress={()=>navigation.navigate('Security')}><Text>Segurança da Conta</Text></Option>
-		<Option onPress={()=>handlesignOut()}><Text>Alterar Senha</Text></Option>
+		<Option onPress={()=>handlesignOut()}><Text>Sair da Conta</Text></Option>
 
 		</ScrollView>
 		)}

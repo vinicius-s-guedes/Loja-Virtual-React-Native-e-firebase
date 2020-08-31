@@ -21,7 +21,7 @@ export default function Products( {navigation}) {
     const onRefresh = React.useCallback(() => {
         setRefreshing(true);
 
-        wait(2000).then(() =>{ 
+        wait(500).then(() =>{ 
             setOffersView(false)
             setOffersView(<Offers navigation={navigation} />)
              setRefreshing(false)

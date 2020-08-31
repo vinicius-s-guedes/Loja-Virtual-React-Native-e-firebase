@@ -9,15 +9,15 @@ import * as ImagePicker from 'expo-image-picker';
 import { Ionicons } from '@expo/vector-icons'; 
 
 import {Container,ContainerInput,Text_primary, Image, Input,
-	ScrollView,Picker,Btn,TouchableHighlight,ButtonOption}  from './styles';
+	ScrollView,Btn,TouchableHighlight,ButtonOption}  from './styles';
 	import Button from '../../../components/Button'
 
 
 	const Login=({navigation})=> {
 
 		const [downloadUrl, setDownloadUrl] = useState();
-		const [imageUrl, setImageUrl] = useState();
-		const [nome, setNome] = useState();
+		const [imageUrl, setImageUrl] = useState(firebase.auth().currentUser.photoURL);
+		const [nome, setNome] = useState(firebase.auth().currentUser.displayName);
 
 		const [CPF, setCPF] = useState();
 		const [Genero, setGenero] = useState();
@@ -69,15 +69,25 @@ import {Container,ContainerInput,Text_primary, Image, Input,
 				return  uploadToFirebase(blob);
 			}).then((snapshot)=>{
 
-				snapshot.ref.getDownloadURL().then(function(downloadURL) {
-					console.log("Upload sucess: ", downloadURL);
-					setDownloadUrl(downloadURL)
+				snapshot.ref.getDownloadURL().then(function(downloadUrl) {
+					console.log("Upload sucess: ", downloadUrl);
+				user.updateProfile({
+				displayName: nome,
+				photoURL: downloadUrl,
+			}).then(function(docRef) {
+				alert('Update successful.')
+			})
+
 				});
 
 			}).catch((error)=>{
 				throw console.log('error');
 			});
 		}  
+
+
+
+
 
 		const _pickImage = async () => {
 
@@ -99,26 +109,7 @@ import {Container,ContainerInput,Text_primary, Image, Input,
 
 var user = firebase.auth().currentUser;
 
-const handleCad = async () => {
-	handleImageFs().then(function() {
 
-		if(downloadUrl){
-
-			user.updateProfile({
-				displayName: nome,
-				photoURL: downloadUrl,
-			}).then(function(docRef) {
-				console.log('Update successful.')
-			}).catch(function(error) {
-				console.log('An error happened.')
-			});
-
-		}else{
-			alert('adicione uma imagem para continuar')
-		}
-	})
-
-}
 
 
 
@@ -132,7 +123,7 @@ return (
 	<TouchableHighlight onPress={_pickImage}>
 	{imageUrl
 		?  <Image source={{ uri: imageUrl }} style={{ width: 200, height: 200 }}/>
-		:  <Btn>Escolha uma imagem para seu produto</Btn>
+		:  <Btn>Escolha uma imagem</Btn>
 	}
 	</TouchableHighlight>
 
@@ -140,6 +131,7 @@ return (
 	<Input
 	name="Nome"
 	onChangeText={(text) => { setNome(text) }}
+	value={nome}
 	autoCapitalize="none"
 	placeholder="Nome"
 	/>
@@ -149,37 +141,23 @@ return (
 	autoCapitalize="none"
 	placeholder="CPF/CNPJ"
 	/>
-	<Picker
-	selectedValue={Genero}
-	placeholder="Genero"
-	color="#C4C4C4"
-	onValueChange={(itemValue, itemIndex) => setGenero(itemValue)}
-	>
-	<Picker.Item label="Genero"  color="#C4C4C4" />
-	<Picker.Item label="Não Informal" color="#000"  value="Not" />
-	<Picker.Item label="Masculino" color="#0000FF" value="Roupas" />
-	<Picker.Item label="Feminino"  color="#FC0FC0" value="Computadores" />
-
-	</Picker>          
-
 	</ContainerInput>
 
-	<Button style='outline' onPress={handleCad}><Text_primary>Salvar Alterações</Text_primary></Button>
+	<Button style='outline' onPress={handleImageFs}><Text_primary>Salvar Alterações</Text_primary></Button>
 
 	</Container >
 
 	<ButtonOption   onPress={()=> navigation.navigate('Email')}>
-	<Text_primary>Email
-	<Ionicons name="ios-arrow-forward" size={24} color="black" />
+	<Text_primary>Mudar Email
 	</Text_primary>
 	</ButtonOption>
+
 	<ButtonOption  onPress="">
-	<Text_primary>Telefone</Text_primary>
-	<Ionicons name="ios-arrow-forward" size={24} color="black" />
+	<Text_primary>Adicionar/Mudar Telefone</Text_primary>
 	</ButtonOption>
+
 	<ButtonOption   onPress={()=> navigation.navigate('Senha')}>
 	<Text_primary>Alterar Senha</Text_primary>
-	<Ionicons name="ios-arrow-forward" size={24} color="black" />
 	</ButtonOption>
 
 

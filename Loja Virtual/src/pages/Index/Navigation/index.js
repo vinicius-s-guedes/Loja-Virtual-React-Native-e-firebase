@@ -74,7 +74,7 @@ export default function Navigation({ navigation }) {
 			if(firebase.auth().currentUser){
 				navigation.navigate('Cart')
 			}else{
-				navigation.navigate('Login')
+				navigation.navigate('Home')
 			} 
 		}
 		return (

@@ -75,7 +75,7 @@ function addCourseAction(product) {
 				</ProdBtn>
 				<ProdBtn  onPress={()=>DeleteSalve(item.result.idProd)}>
 				
-				<AntDesign name="heart" size={24} color="red" />
+				<AntDesign name="heart" size={24} color='#5ca935' />
 
 				</ProdBtn>
 				</ProdContainer>

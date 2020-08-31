@@ -17,7 +17,7 @@ export default function Cart({ navigation }) {
     navigation.setOptions({
       title: `Carrinho (${courses.length})`,
     });
-  }, [courses]);
+  }, courses);
 
 
 var db = firebase.firestore();

@@ -28,15 +28,24 @@ export const RedefinePass = styled.TouchableOpacity`
         margin-top: 40px;
 
 `;
-export const Button = styled.Button`
-        position: absolute;
-        top: 60px;
-        left: 20px;
-        color: #3483FA;
+export const Button = styled.TouchableOpacity`
+        width: 100%;
+        background-color: #FFF;
+        border-radius: 3px;
+        border-color: #3483FA;
+        border-width: 1px;
+        height: 60px;
+        justify-content: center;
+        align-items: center;
+        margin-top: 10px;
 
 `;
 
 export const Image = styled.Image`
         margin-bottom: 40px;
+`;
+
+
+export const Text = styled.Text`
 `;
 

@@ -81,11 +81,18 @@ import {Drawer_content,Drawer_header,Drawer_body,Mercado_pago,Mercado_pago_text,
                             icon: <AntDesign name="home" size={24} color="black" />,
                         },
                         {
-                            id: 3,
+                            id: 2,
                             name: "Meu Perfil",
                             action: "Perfil",
                             icon: <AntDesign name="profile" size={24} color="black" />,
-                        }
+                        },
+                        {
+                            id: 3,
+                            name: "Salvos",
+                            action: "Cart",
+                            icon: <AntDesign name="hearto" size={24} color="black" />,
+                        },
+
                         ];
 
                         return (
@@ -94,13 +101,24 @@ import {Drawer_content,Drawer_header,Drawer_body,Mercado_pago,Mercado_pago_text,
                         <Drawer_body>
                         <DrawerContentScrollView>
                         {listMenuDrawer.map((menu) => (
+                           firebase.auth().currentUser?(
+
                             <DrawerItem
                             label={menu.name}
                             key={menu.id}
                             icon={() => menu.icon}
                             onPress={() => navigation.navigate(menu.action)}
                             />
+                           ):(
+                            <DrawerItem
+                            label={menu.name}
+                            key={menu.id}
+                            icon={() => menu.icon}
+                            onPress={() => navigation.navigate("Home")}
+                            />  
+                           )
                             ))}
+
                             <DrawerItem
                             label='Sair'
                             key='3'

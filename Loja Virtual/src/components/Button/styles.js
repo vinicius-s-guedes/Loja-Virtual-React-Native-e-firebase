@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native'
 const styles = StyleSheet.create({
     btn_primary: {
         width: '100%',
-        backgroundColor: '#3483FA',
+        backgroundColor: '#5ca935',
         borderRadius: 3,
         height: 60,
         justifyContent: 'center',
@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
         width: '100%',
         backgroundColor: '#FFF',
         borderRadius: 3,
-        borderColor: '#3483FA',
+        borderColor: '#5ca935',
         borderWidth: 1,
         height: 60,
         justifyContent: 'center',

@@ -68,5 +68,5 @@ width: 100%;
 justify-content:center;
 background-color:#fff;
 margin-top: 20px;
-
 `;
+
