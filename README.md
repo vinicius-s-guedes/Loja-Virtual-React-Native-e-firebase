@@ -1,5 +1,5 @@
 # Loja-Virtual-React-Native-e-firebase
-Projeto pessoal
+Projeto pessoal para  por em prática  tanto o React-Native como o Firebase
 
 
 ## Funcionalidades Adicionadas:
